@@ -1,3 +1,6 @@
+#Boolgram
+A tech-test for the my interview with Boolean. The task is to recreate the instagram homepage as per the video example provided.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
