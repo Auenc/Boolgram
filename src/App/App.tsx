@@ -2,8 +2,9 @@ import React from "react";
 import { FaRegHeart, FaHome } from "react-icons/fa";
 import "./App.scss";
 import lewis from "../assets/lewis.svg";
+import MyProfile from "../my-profile/MyProfile";
 
-function App() {
+const App : React.FunctionComponent = () => {
   return (
     <div className='App'>
       <header className='App-header'>
@@ -25,7 +26,9 @@ function App() {
       </header>
       <div className='content-container'>
         <div className='feed'>feed column</div>
-        <div className='sidebar'>sidebar column</div>
+        <div className='sidebar'>
+          <MyProfile />
+        </div>
       </div>
     </div>
   );
