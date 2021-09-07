@@ -61,11 +61,16 @@
     div {
       &.sidebar {
         width: 40%;
-        background-color: red;
+
+        .copyright {
+          display: inline-block;
+          opacity: 20%;
+          font-size: 12px;
+          margin-top: 3em;
+        }
       }
       &.feed {
         width: 60%;
-        background-color: blue;
       }
     }
   }

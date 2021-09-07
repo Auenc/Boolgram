@@ -1,0 +1,20 @@
+.my-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .picture {
+        width: 75px;
+        height: 75px;
+    }
+    .names {
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .full-name {
+            opacity: 50%;
+        }
+    }
+}
