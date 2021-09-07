@@ -3,6 +3,7 @@ import { FaRegHeart, FaHome } from "react-icons/fa";
 import "./App.scss";
 import lewis from "../assets/lewis.svg";
 import MyProfile from "../my-profile/MyProfile";
+import SuggestedProfileList from "../SuggestedProfileList/SuggestedProfileList";
 
 const App : React.FunctionComponent = () => {
   return (
@@ -28,6 +29,8 @@ const App : React.FunctionComponent = () => {
         <div className='feed'>feed column</div>
         <div className='sidebar'>
           <MyProfile />
+          <SuggestedProfileList />
+          <span className="copyright">&copy; 2021 INSTAGRAM FROM FACEBOOK</span>
         </div>
       </div>
     </div>

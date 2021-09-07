@@ -10,7 +10,7 @@ const MyProfile: React.FunctionComponent = () => {
                 <div className="account-name">LewisCampbell</div>
                 <div className="full-name">Lewis Campbell</div>
             </div>
-            <a>Passa a</a>
+            <a href="/">Passa a</a>
         </div>
     );
 }
