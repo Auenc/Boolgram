@@ -1,0 +1,72 @@
+@import "../variables.scss";
+
+.App {
+  min-height: 100vh;
+  background-color: $background-color;
+
+  .App-header {
+    background-color: $primary-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid $border-color;
+
+    .header-content {
+      width: 80vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+
+      .search {
+        background-color: $background-color;
+        height: 2em;
+        width: 250px;
+        border: 1px solid $border-color;
+        text-align: center;
+      }
+
+      .logo {
+        font-family: "Allison", cursive;
+        font-size: 2.5em;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 150px;
+
+        .my-profile {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .content-container {
+    margin-top: 68px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 3em;
+
+    div {
+      &.sidebar {
+        width: 40%;
+        background-color: red;
+      }
+      &.feed {
+        width: 60%;
+        background-color: blue;
+      }
+    }
+  }
+}
