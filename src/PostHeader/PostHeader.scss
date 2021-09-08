@@ -1,0 +1,19 @@
+@import "../variables.scss";
+
+.post-header {
+    border: 1px solid $border-color;
+    padding: 0.5em 1em 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile-picture {
+        margin-right: 1em;
+        width: 40px;
+        height: 40px;
+    }
+
+    .username {
+        flex: 1;
+    }
+}

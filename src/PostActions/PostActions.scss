@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.post-actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
+    * {
+        margin-right: 1em;
+    }
+}

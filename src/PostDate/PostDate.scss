@@ -1,0 +1,11 @@
+@import "../variables.scss";
+
+.post-date {
+    opacity: 50%;
+    font-size: 14px;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}

@@ -5,6 +5,7 @@ import lewis from "../assets/lewis.svg";
 import MyProfile from "../my-profile/MyProfile";
 import SuggestedProfileList from "../SuggestedProfileList/SuggestedProfileList";
 import StoryList from "../StoryList/StoryList";
+import PostList from "../PostList/PostList";
 
 const App : React.FunctionComponent = () => {
   return (
@@ -29,6 +30,7 @@ const App : React.FunctionComponent = () => {
       <div className='content-container'>
         <div className='feed'>
           <StoryList />
+          <PostList />
         </div>
         <div className='sidebar'>
           <MyProfile />
