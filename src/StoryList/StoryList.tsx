@@ -1,28 +1,23 @@
 import react from "react";
 import "./StoryList.scss";
-import lewis from "../assets/lewis.svg";
 import StoryComponent from "../Story/Story";
+import { Story } from "../_types/Story";
 
-const tmpData = [
-  { account_name: "lewiscampbell", profile_picture: lewis },
-  { account_name: "lewiscampbell", profile_picture: lewis },
-  { account_name: "lewiscampbell", profile_picture: lewis },
-  { account_name: "lewiscampbell", profile_picture: lewis },
-  { account_name: "lewiscampbell", profile_picture: lewis },
-  { account_name: "lewiscampbell", profile_picture: lewis },
-];
+interface StoryListProps {
+  stories: Story[]
+}
 
-const StoryList: react.FunctionComponent = () => {
-  const stories = tmpData.map((story, key) => (
+const StoryList: react.FunctionComponent<StoryListProps> = ({stories}: StoryListProps) => {
+  const renderStories = stories.map((story, key) => (
     <StoryComponent
-      account_name={story.account_name}
+      account_name={story.profile_name}
       profile_picture={story.profile_picture}
       key={key}
     />
   ));
   return (
     <div className='story-list'>
-      <div className='content'>{stories}</div>
+      <div className='content'>{renderStories}</div>
     </div>
   );
 };

@@ -1,40 +1,14 @@
 import react from "react";
+import { IPost } from "../../_types/Post";
 import Post from "../Post/Post";
 import "./PostList.scss";
 
-const tmpData = [
-  {
-    profile_picture:
-      "https://flynn.boolean.careers/exercises/img/boolgram/profile1.jpg",
-    profile_name: "kassulke.brice",
-    profile_fullname: "Sharon Nolan",
-    post_image:
-      "https://flynn.boolean.careers/exercises/img/boolgram/landscape1.jpg",
-    post_text: "You gave us three.",
-    date: {
-      date: "2021-09-07 11:08:53.000000",
-      timezone_type: 3,
-      timezone: "UTC",
-    },
-    comments: [
-      {
-        username: "adriana.kuhic",
-        text: "Hatter.",
-      },
-    ],
-    likes: [
-      {
-        username: "yrippin",
-        profile_picture:
-          "https://flynn.boolean.careers/exercises/img/boolgram/profile5.jpg",
-      },
-    ],
-  },
-];
+interface PostListProps {
+  posts: IPost[];
+}
 
-const PostList: react.FunctionComponent = () => {
-  console.log('tmp data', tmpData);
-  const posts = tmpData.map((post, key) => (
+const PostList: react.FunctionComponent<PostListProps> = ({posts}: PostListProps) => {
+  const renderPosts = posts.map((post, key) => (
     <Post
       profile_name={post.profile_name}
       profile_fullname={post.profile_fullname}
@@ -47,7 +21,7 @@ const PostList: react.FunctionComponent = () => {
       key={key}
     />
   ));
-  return <div className='post-list'>{posts}</div>;
+  return <div className='post-list'>{renderPosts}</div>;
 };
 
 export default PostList;
