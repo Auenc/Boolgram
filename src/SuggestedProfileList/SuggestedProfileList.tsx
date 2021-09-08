@@ -1,46 +1,19 @@
 import react from "react";
 import "./SuggestedProfileList.scss";
-import lewis from "../assets/lewis.svg";
 import SuggestedProfile from "../SuggestedProfile/SuggestedProfile";
+import { Profile } from "../_types/Profile";
 
-const tmpProfiles = [
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-  {
-    profile_picture: lewis,
-    profile_name: "lewiscampbell",
-  },
-];
+interface SuggestedProfileListProps {
+  profiles: Profile[]
+}
 
-const SuggestedProfileList: react.FunctionComponent = () => {
-  const suggestedProfiles = tmpProfiles.map((profile, key) => (
-    <SuggestedProfile key={key} />
+const SuggestedProfileList: react.FunctionComponent<SuggestedProfileListProps> = ({profiles}: SuggestedProfileListProps) => {
+  const suggestedProfiles = profiles.map((profile, key) => (
+    <SuggestedProfile
+      profile_name={profile.profile_name}
+      profile_picture={profile.profile_picture}
+      key={key}
+    />
   ));
   return (
     <div className='suggested-profiles'>

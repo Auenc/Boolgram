@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegHeart, FaHome } from "react-icons/fa";
 import "./App.scss";
 import lewis from "../assets/lewis.svg";
@@ -6,8 +6,34 @@ import MyProfile from "../my-profile/MyProfile";
 import SuggestedProfileList from "../SuggestedProfileList/SuggestedProfileList";
 import StoryList from "../StoryList/StoryList";
 import PostList from "../Posts/PostList/PostList";
+import { Profile } from "../_types/Profile";
+import { getAllProfiles } from "../_services/ProfileService";
+import { IPost } from "../_types/Post";
+import { getAllPosts } from "../_services/PostService";
+
 
 const App : React.FunctionComponent = () => {
+  const [profiles, setProfiles] = useState<Array<Profile>>([]);
+  const [posts, setPosts]  = useState<Array<IPost>>([]);
+
+  const retrieveProfiles = async () => {
+    const profiles = await getAllProfiles();
+    setProfiles(profiles);
+  }
+
+  const retrievePosts = async () => {
+    const posts = await getAllPosts();
+    setPosts(posts);
+  }
+
+  useEffect(() => {
+    retrieveProfiles()
+  }, [])
+
+  useEffect(() => {
+    retrievePosts();
+  }, []);
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -29,12 +55,12 @@ const App : React.FunctionComponent = () => {
       </header>
       <div className='content-container'>
         <div className='feed'>
-          <StoryList />
-          <PostList />
+          <StoryList stories={posts} />
+          <PostList posts={posts} />
         </div>
         <div className='sidebar'>
           <MyProfile />
-          <SuggestedProfileList />
+          <SuggestedProfileList profiles={profiles} />
           <span className="copyright">&copy; 2021 INSTAGRAM FROM FACEBOOK</span>
         </div>
       </div>
