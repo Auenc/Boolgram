@@ -15,8 +15,12 @@ code {
     monospace;
 }
 
-img.rounded-image {
+img.rounded {
   border-radius: 50%;
+
+  &.unread {
+    border: 3px solid #ce4937;
+  }
 }
 
 a {

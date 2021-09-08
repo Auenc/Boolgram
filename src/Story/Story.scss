@@ -1,0 +1,18 @@
+.story {
+    width: fit-content;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    .unread {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        margin-bottom: 1em;
+    }
+    .account-name {
+        font-size: 13px;
+        opacity: 75%;
+    }
+}
