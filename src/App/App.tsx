@@ -5,7 +5,7 @@ import lewis from "../assets/lewis.svg";
 import MyProfile from "../my-profile/MyProfile";
 import SuggestedProfileList from "../SuggestedProfileList/SuggestedProfileList";
 import StoryList from "../StoryList/StoryList";
-import PostList from "../PostList/PostList";
+import PostList from "../Posts/PostList/PostList";
 
 const App : React.FunctionComponent = () => {
   return (
