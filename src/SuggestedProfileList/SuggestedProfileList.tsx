@@ -40,7 +40,7 @@ const tmpProfiles = [
 
 const SuggestedProfileList: react.FunctionComponent = () => {
   const suggestedProfiles = tmpProfiles.map((profile, key) => (
-    <SuggestedProfile />
+    <SuggestedProfile key={key} />
   ));
   return (
     <div className='suggested-profiles'>
