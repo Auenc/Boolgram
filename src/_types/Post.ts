@@ -1,12 +1,12 @@
 export interface IPost {
-    profile_picture: string;
-    profile_name: string;
-    profile_fullname: string;
-    post_image: string;
-    post_text: string;
-    date: PostDate;
-    comments: Comment[];
-    likes: Like[];
+    profile_picture?: string;
+    profile_name?: string;
+    profile_fullname?: string;
+    post_image?: string;
+    post_text?: string;
+    date?: PostDate;
+    comments?: Comment[];
+    likes?: Like[];
 }
 
 export interface PostDate {
