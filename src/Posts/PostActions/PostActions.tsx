@@ -5,8 +5,8 @@ import "./PostActions.scss";
 const PostActions: react.FunctionComponent = () => {
     return (
         <div className="post-actions">
-          <FaRegHeart size={25} />
-          <FaRegComment size={25} />
+          <FaRegHeart className="link" size={25} />
+          <FaRegComment className="link" size={25} />
       </div>
     );
 }

@@ -16,14 +16,14 @@ const StoryComponent: react.FunctionComponent<StoryProps> = ({
     <div className='story'>
       {profile_picture ? (
         <img
-          className='rounded unread'
+          className='rounded unread link'
           src={profile_picture}
           alt={account_name}
         />
       ) : (
         <Skeleton circle={true} height={75} width={75} />
       )}
-      <span className='account-name'>{account_name}</span>
+      <span className='account-name link'>{account_name}</span>
     </div>
   );
 };

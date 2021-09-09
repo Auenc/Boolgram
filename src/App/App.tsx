@@ -45,13 +45,11 @@ const App : React.FunctionComponent = () => {
     <div className='App'>
       <header className='App-header'>
         <div className='header-content'>
-          <span className='logo'>Boolgram</span>
-          <input className='search' type='text' placeholder='Search' />
+          <span className='logo link'>Boolgram</span>
+          <input className='search' type='text' placeholder='Cerca' />
           <div className='actions'>
-            {/* TODO border might be too thick and colour might be off */}
-            <FaRegHeart size={25} />
-            {/* TODO colour is off */}
-            <FaHome size={25} />
+            <FaRegHeart className="link" size={25} />
+            <FaHome className="link" size={25} />
             <img
               src={lewis}
               className='rounded-img my-profile'

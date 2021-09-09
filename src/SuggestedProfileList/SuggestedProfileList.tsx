@@ -19,7 +19,7 @@ const SuggestedProfileList: react.FunctionComponent<SuggestedProfileListProps> =
     <div className='suggested-profiles'>
       <div className='header'>
         <div className='suggestion'>Suggerimenti per te</div>
-        <div className='action'>Monstra tutti</div>
+        <div className='action link'>Mostra tutti</div>
       </div>
       {suggestedProfiles}
     </div>
