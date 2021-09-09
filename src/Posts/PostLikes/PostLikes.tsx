@@ -15,7 +15,7 @@ const renderOthers = (likes: Like[]) => {
     return (
       <span>
         <span className='muted'> e </span>
-        {likes.length - 1} altri
+        <span className='link'>{likes.length - 1} altri</span>
       </span>
     );
   }
@@ -25,8 +25,8 @@ const renderOthers = (likes: Like[]) => {
 const PostLikes: react.FunctionComponent<PostLikesProps> = ({
   likes,
 }: PostLikesProps) => {
-  if(!likes){
-    return (<div className="post-likes"></div>)
+  if (!likes) {
+    return <div className='post-likes'></div>;
   }
   const first = likes[0];
   if (!first) return <div className='post-likes'></div>;
@@ -34,12 +34,13 @@ const PostLikes: react.FunctionComponent<PostLikesProps> = ({
   return (
     <div className='post-likes'>
       <img
-        className='rounded liked-picture'
+        className='rounded liked-picture link'
         src={first.profile_picture}
         alt='something'
       />
       <div className='description'>
-        <span className='muted'>Piace a</span> {first.username}
+        <span className='muted'>Piace a </span>
+        <span className='link'>{first.username}</span>
         {renderOthers(likes)}
       </div>
     </div>

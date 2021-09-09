@@ -15,14 +15,14 @@ const SuggestedProfile: react.FunctionComponent<SuggestedProfileProps> = ({
     <div className='suggested-profile'>
       {profile_picture ? (
         <img
-          className='rounded suggested-picture'
+          className='rounded suggested-picture link'
           src={profile_picture}
           alt='profile'
         />
       ) : (
         <Skeleton className="suggested-picture" circle={true} height={50} width={50} />
       )}
-      <div className='account-name'>{profile_name || <Skeleton width={150}/>}</div>
+      <div className='account-name link'>{profile_name || <Skeleton width={150}/>}</div>
       {profile_name ? <a href='/'>Segui</a> : <span></span>}
     </div>
   );

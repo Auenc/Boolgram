@@ -18,17 +18,17 @@ const PostHeader: react.FunctionComponent<PostHeaderProps> = ({
     <div className='post-header'>
       {profile_picture ? (
         <img
-          className='rounded profile-picture unread'
+          className='rounded profile-picture unread link'
           src={profile_picture}
           alt={profile_name}
         />
       ) : (
         <Skeleton className="profile-picture" circle={true} width={40} height={40} />
       )}
-      <div className='username'>
+      <div className='username link'>
         {profile_fullname || <Skeleton width={150} />}
       </div>
-      {profile_picture ? <FaEllipsisH /> : <span></span>}
+      {profile_picture ? <FaEllipsisH className="link" /> : <span></span>}
     </div>
   );
 };
