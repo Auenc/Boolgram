@@ -7,7 +7,7 @@ export interface Like {
 }
 
 interface PostLikesProps {
-  likes: Like[];
+  likes?: Like[];
 }
 
 const renderOthers = (likes: Like[]) => {
@@ -25,6 +25,9 @@ const renderOthers = (likes: Like[]) => {
 const PostLikes: react.FunctionComponent<PostLikesProps> = ({
   likes,
 }: PostLikesProps) => {
+  if(!likes){
+    return (<div className="post-likes"></div>)
+  }
   const first = likes[0];
   if (!first) return <div className='post-likes'></div>;
 

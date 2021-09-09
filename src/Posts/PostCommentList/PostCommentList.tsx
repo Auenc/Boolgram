@@ -4,10 +4,13 @@ import "./PostCommentList.scss";
 
 
 interface PostCommentListProps {
-  comments: PostCommentProps[];
+  comments?: PostCommentProps[];
 }
 
 const PostCommentList: react.FunctionComponent<PostCommentListProps> = ({comments}: PostCommentListProps) => {
+  if (!comments) {
+    return <div className='post-comment-list'></div> 
+  }
   const renderComments = comments.map((comment, key) => (
     <PostComment username={comment.username} text={comment.text} key={key} />
   ));

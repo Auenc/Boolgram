@@ -21,14 +21,14 @@ interface PDate {
 }
 
 interface PostProps {
-  profile_picture: string;
-  profile_name: string;
-  profile_fullname: string;
-  post_image: string;
-  post_text: string;
-  date: PDate;
-  comments: PostCommentProps[];
-  likes: Like[];
+  profile_picture?: string;
+  profile_name?: string;
+  profile_fullname?: string;
+  post_image?: string;
+  post_text?: string;
+  date?: PDate;
+  comments?: PostCommentProps[];
+  likes?: Like[];
   key: number;
 }
 
@@ -42,6 +42,7 @@ const Post: react.FunctionComponent<PostProps> = ({
   comments,
   likes,
 }: PostProps) => {
+  const postDate = date ? new Date(date.date) : new Date();
   return (
     <div className='post'>
       <PostHeader
@@ -49,13 +50,25 @@ const Post: react.FunctionComponent<PostProps> = ({
         profile_name={profile_name}
         profile_picture={profile_picture}
       />
-      <img className='post-image' src={post_image} alt={post_text} />
-      <PostActions />
-      <PostLikes likes={likes} />
-      <PostCaption username={profile_name} text={post_text} />
-      <PostCommentList comments={comments} />
-      <PostDate date={new Date(date.date)} />
-      <PostAddComment />
+      {profile_picture ? (
+        <img className='post-image' src={post_image} alt={post_text} />
+      ) : (
+        <div className='loading-image'></div>
+      )}
+      {profile_picture ? <PostActions /> : <span></span>}
+      {profile_picture ? <PostLikes likes={likes} /> : <span></span>}
+      {profile_picture ? (
+        <PostCaption username={profile_name} text={post_text} />
+      ) : (
+        <span></span>
+      )}
+      {profile_picture ? (
+        <PostCommentList comments={comments} />
+      ) : (
+        <span></span>
+      )}
+      {profile_picture ? <PostDate date={postDate} /> : <span></span>}
+      {profile_picture ? <PostAddComment /> : <span></span>}
     </div>
   );
 };

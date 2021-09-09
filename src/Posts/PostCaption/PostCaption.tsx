@@ -2,8 +2,8 @@ import react from "react";
 import "./PostCaption.scss";
 
 interface PostCaptionProps {
-  username: string;
-  text: string;
+  username?: string;
+  text?: string;
 }
 
 const PostCaption: react.FunctionComponent<PostCaptionProps> = ({

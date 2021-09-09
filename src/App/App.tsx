@@ -10,11 +10,14 @@ import { Profile } from "../_types/Profile";
 import { getAllProfiles } from "../_services/ProfileService";
 import { IPost } from "../_types/Post";
 import { getAllPosts } from "../_services/PostService";
+import { Story } from "../_types/Story";
+import { getAllStories } from "../_services/StoryService";
 
 
 const App : React.FunctionComponent = () => {
-  const [profiles, setProfiles] = useState<Array<Profile>>([]);
-  const [posts, setPosts]  = useState<Array<IPost>>([]);
+  const [profiles, setProfiles] = useState<Array<Profile>>([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
+  const [posts, setPosts]  = useState<Array<IPost>>([{}]);
+  const [stories, setStories] = useState<Array<Story>>([{}, {}, {}, {}, {}])
 
   const retrieveProfiles = async () => {
     const profiles = await getAllProfiles();
@@ -26,13 +29,17 @@ const App : React.FunctionComponent = () => {
     setPosts(posts);
   }
 
-  useEffect(() => {
-    retrieveProfiles()
-  }, [])
+  const retrieveStories = async () => {
+    const stories = await getAllStories();
+    setStories(stories);
+  }
 
   useEffect(() => {
+    retrieveProfiles()
     retrievePosts();
-  }, []);
+    retrieveStories();
+  }, [])
+
 
   return (
     <div className='App'>
@@ -55,7 +62,7 @@ const App : React.FunctionComponent = () => {
       </header>
       <div className='content-container'>
         <div className='feed'>
-          <StoryList stories={posts} />
+          <StoryList stories={stories} />
           <PostList posts={posts} />
         </div>
         <div className='sidebar'>

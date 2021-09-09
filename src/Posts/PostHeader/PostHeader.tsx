@@ -1,11 +1,12 @@
 import react from "react";
 import { FaEllipsisH } from "react-icons/fa";
+import Skeleton from "react-loading-skeleton";
 import "./PostHeader.scss";
 
 export interface PostHeaderProps {
-  profile_picture: string;
-  profile_name: string;
-  profile_fullname: string;
+  profile_picture?: string;
+  profile_name?: string;
+  profile_fullname?: string;
 }
 
 const PostHeader: react.FunctionComponent<PostHeaderProps> = ({
@@ -15,13 +16,19 @@ const PostHeader: react.FunctionComponent<PostHeaderProps> = ({
 }: PostHeaderProps) => {
   return (
     <div className='post-header'>
-      <img
-        className='rounded profile-picture unread'
-        src={profile_picture}
-        alt={profile_name}
-      />
-      <div className='username'>{profile_fullname}</div>
-      <FaEllipsisH />
+      {profile_picture ? (
+        <img
+          className='rounded profile-picture unread'
+          src={profile_picture}
+          alt={profile_name}
+        />
+      ) : (
+        <Skeleton className="profile-picture" circle={true} width={40} height={40} />
+      )}
+      <div className='username'>
+        {profile_fullname || <Skeleton width={150} />}
+      </div>
+      {profile_picture ? <FaEllipsisH /> : <span></span>}
     </div>
   );
 };
