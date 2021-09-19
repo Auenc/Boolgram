@@ -12,6 +12,7 @@ import { IPost } from "../_types/Post";
 import { getAllPosts } from "../_services/PostService";
 import { Story } from "../_types/Story";
 import { getAllStories } from "../_services/StoryService";
+import { PostCommentProps } from "../Posts/PostComment/PostComment";
 
 
 const App : React.FunctionComponent = () => {
@@ -40,6 +41,20 @@ const App : React.FunctionComponent = () => {
     retrieveStories();
   }, [])
 
+  const addCommentToPost = (toFind: IPost, comment: PostCommentProps) => {
+    posts.forEach((post, i) => {
+      if (post === toFind){
+        const newComments = [...post.comments || [], comment]
+        const newPosts = Object.assign([...posts],{
+          [i]: {
+            ...post,
+            comments: newComments
+          }
+        })
+        setPosts(newPosts)
+      }
+    })
+  };
 
   return (
     <div className='App'>
@@ -61,7 +76,7 @@ const App : React.FunctionComponent = () => {
       <div className='content-container'>
         <div className='feed'>
           <StoryList stories={stories} />
-          <PostList posts={posts} />
+          <PostList addCommentToPost={addCommentToPost} posts={posts} />
         </div>
         <div className='sidebar'>
           <MyProfile />

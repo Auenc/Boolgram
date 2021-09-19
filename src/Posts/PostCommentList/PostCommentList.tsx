@@ -11,6 +11,7 @@ const PostCommentList: react.FunctionComponent<PostCommentListProps> = ({comment
   if (!comments) {
     return <div className='post-comment-list'></div> 
   }
+
   const renderComments = comments.map((comment, key) => (
     <PostComment username={comment.username} text={comment.text} key={key} />
   ));

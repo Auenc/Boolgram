@@ -1,25 +1,17 @@
 import react from "react";
 import { IPost } from "../../_types/Post";
 import Post from "../Post/Post";
+import { PostCommentProps } from "../PostComment/PostComment";
 import "./PostList.scss";
 
 interface PostListProps {
   posts: IPost[];
+  addCommentToPost: (post: IPost, comment: PostCommentProps) => void
 }
 
-const PostList: react.FunctionComponent<PostListProps> = ({posts}: PostListProps) => {
+const PostList: react.FunctionComponent<PostListProps> = ({posts, addCommentToPost}: PostListProps) => {
   const renderPosts = posts.map((post, key) => (
-    <Post
-      profile_name={post.profile_name}
-      profile_fullname={post.profile_fullname}
-      profile_picture={post.profile_picture}
-      post_image={post.post_image}
-      post_text={post.post_text}
-      date={post.date}
-      comments={post.comments}
-      likes={post.likes}
-      key={key}
-    />
+    <Post post={post} key={key} addCommentToPost={addCommentToPost} />
   ));
   return <div className='post-list'>{renderPosts}</div>;
 };
